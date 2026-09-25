@@ -13,4 +13,4 @@ Run `make ci` before opening a pull request. The gate runs formatting, linting, 
 
 Mozilla Public License 2.0. See [LICENSE](LICENSE).
 
-Copyright (c) 2026 Corridon Capital.
+[Get access to Eclipse here:](https://eclipserblx.xyz)
