@@ -1,0 +1,24 @@
+{
+  "name": "Library Tests",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Library": {
+        "$path": "src"
+      },
+      "Tests": {
+        "$path": "tests"
+      },
+      "TestEZ": {
+        "$path": "build/TestEZ.rbxm"
+      }
+    },
+
+    "ServerScriptService": {
+      "RunTests": {
+        "$path": "tests/run.server.luau"
+      }
+    }
+  }
+}

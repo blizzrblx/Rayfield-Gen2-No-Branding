@@ -1,2 +1,16 @@
-# Rayfield-Gen2-No-Branding
-Removes all branding from the Rayfield Gen2 GUI Library
+# Library
+
+Get Started
+[API documentation](https://docs.sirius.menu/rayfield-gen2)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for local setup, required checks, and pull-request guidance.
+
+Run `make ci` before opening a pull request. The gate runs formatting, linting, type analysis, tests, and the enforced coverage threshold.
+
+## License
+
+Mozilla Public License 2.0. See [LICENSE](LICENSE).
+
+Copyright (c) 2026 Corridon Capital.
