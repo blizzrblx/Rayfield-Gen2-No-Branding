@@ -2608,8 +2608,8 @@ _loadedConfigPath==c then al._loadedConfig=d al._loadedConfigPath=c end return t
 string]:unknown}?,string?)if not af.isfile(am)then return nil,nil end local b,c=pcall(af.readfile,am)if not b or type(c)
 ~='string'then ag.warn'Failed to read configuration file'return nil,nil end local d,e=pcall(ae.httpService.JSONDecode,ae
 .httpService,c)if not d or type(e)~='table'then return nil,c end return e::{[string]:unknown},c end local function am(b:
-string):string local c=ah.stripExtension(b,'.rfld')local d,e=c..' (Incorrect Format).rfld',2 while e<=100 and af.isfile(
-d)do d=c..' (Incorrect Format '..e..').rfld'e+=1 end return d end function ak.load(b:ConfigWindow,c:unknown?):boolean
+string):string local c=ah.stripExtension(b,'.json')local d,e=c..' (Incorrect Format).json',2 while e<=100 and af.isfile(
+d)do d=c..' (Incorrect Format '..e..').json'e+=1 end return d end function ak.load(b:ConfigWindow,c:unknown?):boolean
 local d,e=ak.getPath(b,c)if not d or not e then ag.warn("configuration name '"..tostring(c)..
 "' has no usable characters")return false end if typeof(af.isfile)~='function'then return false end local f,g=al(e)if
 not f and af.isfile(e)then local h,i=al(aj.tempPathFor(e))if h and i then f=h pcall(aj.write,d,e,i)end end if not f then
@@ -2621,7 +2621,7 @@ applyTo(b:PersistedControl,c:unknown)if c==nil and not b._canBeNil then return e
 _deserialize if d then d(b,c)else b:Set(c)end end)if not d then ag.warn("Failed to restore flag '"..tostring(b.flag)..
 "' - "..tostring(e))end end function ak.list(b:ConfigWindow):{string}local c,d:{string}=ak.getPath(b),{}if not c then
 return d end local e,f=pcall(af.listfiles,c)if not e or type(f)~='table'then return d end for g,h in f do local i=ah.
-basename(h)if i:sub(-5)=='.rfld'then local j=ah.stripExtension(i,'.rfld')if j and j~=''and not j:find
+basename(h)if i:sub(-5)=='.json'then local j=ah.stripExtension(i,'.json')if j and j~=''and not j:find
 ' %(Incorrect Format[^%)]*%)$'then table.insert(d,j)end end end table.sort(d)return d end function ak.delete(b:
 ConfigWindow,c:unknown):boolean if type(c)~='string'or c==''then return false end local d,e=ak.getPath(b,c)if not e then
 return false end if typeof(af.isfile)~='function'or not af.isfile(e)then return false end pcall(af.delfile,aj.
@@ -2630,9 +2630,9 @@ function(...)local ae,af,ag=ac(ab.Parent.variables),ac(ab.Parent.path),{}type Co
 string?,customFolder:string?},name:string}function ag.getConfigPath(ah:ConfigWindow,ai:unknown?):(string?,string?)local
 aj=ae.fileSystemManager:getPath'Configurations'if ah.configuration.customFolder then aj=af.join(aj,af.sanitizeFolder(ah.
 configuration.customFolder))end if ai~=nil then local ak=af.sanitizeFile(ai)if ak==''then return nil,nil end return aj,
-af.join(aj,ak..'.rfld')end local ak=af.sanitizeFile(ah.configuration.fileName or ah.name)if ak==''then ak=af.
-sanitizeFile(ah.name)end if ak==''then ak='Configuration'end return aj,af.join(aj,ak..'.rfld')end function ag.
-getSettingsPath():(string,string)local ah=ae.fileSystemManager:getPath'Settings'return ah,af.join(ah,'settings.rfld')end
+af.join(aj,ak..'.json')end local ak=af.sanitizeFile(ah.configuration.fileName or ah.name)if ak==''then ak=af.
+sanitizeFile(ah.name)end if ak==''then ak='Configuration'end return aj,af.join(aj,ak..'.json')end function ag.
+getSettingsPath():(string,string)local ah=ae.fileSystemManager:getPath'Settings'return ah,af.join(ah,'settings.json')end
 return ag end)()end,[64]=function()local aa,ab,ac=a(64)local ad return(function(...)local ae,af,ag,ah,ai,aj=ac(ab.Parent
 .variables),ac(ab.Parent.filesystem),ac(ab.Parent.persistencePaths),ac(ab.Parent.persistenceWrite),ac(ab.Parent.enums),{
 }type SettingsWindow={settings:{toggleKeybind:EnumItem,mouseOverride:boolean,keepOnScreen:boolean,welcomeToast:boolean,
